@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { getAPIData, getVideoID, apiURL } from '../../Utilities';
 
 const Wrapper = () => {
   const [background, setBackground] = useState({});
+
+  const { link, title, copyright } = background;
+
   const StyledWrapper = styled.div`
     background-size: cover;
     background-position: center;
@@ -14,6 +18,7 @@ const Wrapper = () => {
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    background-image: url('${link}');
   `;
 
   const BackgroundDetails = styled.section`
@@ -34,7 +39,7 @@ const Wrapper = () => {
   `;
 
   const BackgroundTitle = styled.h5`
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.3rem 0;
     font-size: 0.9rem;
   `;
 
@@ -45,14 +50,32 @@ const Wrapper = () => {
 
   useEffect(() => {
     setBackground(background);
+    getAPIData(apiURL).then(data => {
+      const { title, copyright } = data;
+
+      // Check to see if a video or image is being returned from the API
+      // If a video is  returned, then use the Youtube preview image as the background image for the app
+      const mediaLink =
+        data.media_type === 'video' ? getVideoID(data.url) : data.hdurl;
+
+      setBackground(
+        {
+          link: mediaLink,
+          title,
+          copyright,
+        } || {}
+      );
+    });
     return () => setBackground({});
   }, []);
 
   return (
     <StyledWrapper>
       <BackgroundDetails>
-        <BackgroundTitle />
-        <BackgroundPhotographer />
+        <BackgroundTitle>{title}</BackgroundTitle>
+        <BackgroundPhotographer>
+          By; {copyright || 'NASA'}
+        </BackgroundPhotographer>
       </BackgroundDetails>
     </StyledWrapper>
   );
