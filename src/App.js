@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import 'normalize.css';
 import './index.css';
 import ImageContext from './components/ImageContext/ImageContext';
+import Wrapper from './components/Wrapper/Wrapper';
 
 function App() {
   const [results, setResults] = useState([]);
@@ -18,7 +19,9 @@ function App() {
           changeResults: e => setResults(e),
         }}
       >
-        <div className="App" />
+        <div className="App">
+          <Wrapper />
+        </div>
       </ImageContext.Provider>
     </React.StrictMode>
   );
