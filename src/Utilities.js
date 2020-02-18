@@ -15,3 +15,6 @@ export function getVideoID(str) {
   const videoID = str.split('/embed/')[1].split('?')[0];
   return `http://img.youtube.com/vi/${videoID}/hqdefault.jpg`;
 }
+
+// Demo API
+export const apiURL = 'https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY';
