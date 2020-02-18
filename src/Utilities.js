@@ -9,3 +9,9 @@ export async function getAPIData(url) {
     console.log(`ERROR: ${rejectedValue}`);
   }
 }
+
+// Needed when API returns a featured video instead of an image in the API
+export function getVideoID(str) {
+  const videoID = str.split('/embed/')[1].split('?')[0];
+  return `http://img.youtube.com/vi/${videoID}/hqdefault.jpg`;
+}
