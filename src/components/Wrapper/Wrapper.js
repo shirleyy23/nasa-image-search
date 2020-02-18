@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getAPIData, getVideoID, apiURL } from '../../Utilities';
+import Search from '../Search/Search';
 
 const Wrapper = () => {
   const [background, setBackground] = useState({});
@@ -71,6 +72,7 @@ const Wrapper = () => {
 
   return (
     <StyledWrapper>
+      <Search />
       <BackgroundDetails>
         <BackgroundTitle>{title}</BackgroundTitle>
         <BackgroundPhotographer>
