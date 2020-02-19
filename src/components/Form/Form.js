@@ -51,11 +51,18 @@ const StyledButton = styled.button`
 `;
 
 const Form = () => {
+  const [searchVal, setSearchVal] = useState('');
+
   return (
     <StyledForm onSubmit={e => e.preventDefault()}>
       <StyledFieldset>
         <StyledLabel htmlFor="search-images">Search images</StyledLabel>
-        <StyledInput type="text" name="search-images" />
+        <StyledInput
+          type="text"
+          name="search-images"
+          value={searchVal}
+          onChange={e => setSearchVal(e.target.value)}
+        />
       </StyledFieldset>
       <StyledButton>Search</StyledButton>
     </StyledForm>
