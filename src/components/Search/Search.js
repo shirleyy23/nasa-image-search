@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Form from '../Form/Form';
 
 const Search = () => {
   const StyledSearch = styled.section`
@@ -34,6 +35,7 @@ const Search = () => {
       <Header>
         <Title>NASA Image Search</Title>
       </Header>
+      <Form />
     </StyledSearch>
   );
 };
