@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { getAPIData } from '../../Utilities';
 
 const StyledForm = styled.form`
   padding: 1.25rem 1.75rem;
@@ -52,6 +53,7 @@ const StyledButton = styled.button`
 
 const Form = () => {
   const [searchVal, setSearchVal] = useState('');
+  const imageQuery = `https://images-api.nasa.gov/search?q=${searchVal}&media_type=image`;
 
   useEffect(() => {
     setSearchVal('');
