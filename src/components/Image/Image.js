@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import ImageContext from '../ImageContext/ImageContext';
 
 const Image = () => {
   const Overlay = styled.div`
@@ -60,13 +61,23 @@ const Image = () => {
   `;
 
   return (
-    <Container>
-      <Overlay>
-        <Title />
-        <OverlayButton>View Photo</OverlayButton>
-      </Overlay>
-      <StyledImage />
-    </Container>
+    <ImageContext.Consumer>
+      {({ results }) =>
+        results.map((result, index) => {
+          const { title, description, photographer, keywords } = result.data[0];
+          const { href } = result.links[0];
+          return (
+            <Container key={`results-image-${index}`}>
+              <Overlay>
+                <Title>{title}</Title>
+                <OverlayButton>View Photo</OverlayButton>
+              </Overlay>
+              <StyledImage src={href} alt={`${title} image`} />
+            </Container>
+          );
+        })
+      }
+    </ImageContext.Consumer>
   );
 };
 
