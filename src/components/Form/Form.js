@@ -53,6 +53,11 @@ const StyledButton = styled.button`
 const Form = () => {
   const [searchVal, setSearchVal] = useState('');
 
+  useEffect(() => {
+    setSearchVal('');
+    return () => setSearchVal('');
+  }, []);
+
   return (
     <StyledForm onSubmit={e => e.preventDefault()}>
       <StyledFieldset>
