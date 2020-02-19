@@ -72,6 +72,7 @@ const Wrapper = () => {
 
   return (
     <StyledWrapper>
+      <div className="modal__root" />
       <Search />
       <BackgroundDetails>
         <BackgroundTitle>{title}</BackgroundTitle>
