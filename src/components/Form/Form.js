@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getAPIData } from '../../Utilities';
+import ImageContext from '../ImageContext/ImageContext';
 
 const StyledForm = styled.form`
   padding: 1.25rem 1.75rem;
@@ -71,7 +72,20 @@ const Form = () => {
           onChange={e => setSearchVal(e.target.value)}
         />
       </StyledFieldset>
-      <StyledButton>Search</StyledButton>
+      <ImageContext.Consumer>
+        {({ changeResults }) => (
+          <StyledButton
+            type="submit"
+            onClick={() => {
+              getAPIData(imageQuery).then(data =>
+                changeResults(data.collection.items)
+              );
+            }}
+          >
+            Search
+          </StyledButton>
+        )}
+      </ImageContext.Consumer>
     </StyledForm>
   );
 };
