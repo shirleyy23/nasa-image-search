@@ -7,7 +7,7 @@ const Results = () => {
     height: 60%;
     overflow: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   `;
   return <Container />;
 };
