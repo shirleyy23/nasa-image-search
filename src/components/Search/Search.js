@@ -9,6 +9,7 @@ const Search = () => {
     color: white;
     flex-basis: 80%;
     height: 70vh;
+    overflow: hidden;
     position: relative;
     border: 2px solid white;
     position: relative;
