@@ -8,6 +8,7 @@ const Results = () => {
     height: 60%;
     overflow: auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   `;
   return (
