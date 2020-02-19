@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from '../Image/Image';
 
 const Results = () => {
   const Container = styled.section`
@@ -9,7 +10,11 @@ const Results = () => {
     display: flex;
     justify-content: space-between;
   `;
-  return <Container />;
+  return (
+    <Container>
+      <Image />
+    </Container>
+  );
 };
 
 export default Results;
