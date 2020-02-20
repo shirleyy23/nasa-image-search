@@ -107,7 +107,15 @@ const Image = () => {
           })
         }
       </ImageContext.Consumer>
-      {displayModal ? <ModalWrapper /> : null}
+      {displayModal ? (
+        <ModalWrapper>
+          <Modal
+            {...modalInfo}
+            displayModal={displayModal}
+            changeModal={changeDisplayModal}
+          />
+        </ModalWrapper>
+      ) : null}
     </>
   );
 };
