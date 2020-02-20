@@ -100,7 +100,7 @@ const Modal = props => {
         <Image src={href} alt={`${title} modal image`} />
       </StyledFigure>
       <ImageTitle>{title}</ImageTitle>
-      <Photographer>By: {photographer || 'NASA'}</Photographer>
+      <Photographer>Photo credit: {photographer || 'NASA'}</Photographer>
       <hr />
       <DescriptionContainer>
         <DescriptionTitle>About</DescriptionTitle>

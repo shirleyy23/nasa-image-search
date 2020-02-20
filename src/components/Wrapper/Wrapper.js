@@ -76,7 +76,7 @@ const Wrapper = () => {
       <BackgroundDetails>
         <BackgroundTitle>{title}</BackgroundTitle>
         <BackgroundPhotographer>
-          By; {copyright || 'NASA'}
+          Photo credit: {copyright || 'NASA'}
         </BackgroundPhotographer>
       </BackgroundDetails>
     </StyledWrapper>
