@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ImageContext from '../ImageContext/ImageContext';
 import ModalWrapper from '../Modal/ModalWrapper';
+import Modal from '../Modal/Modal';
 
 const Overlay = styled.div`
   position: absolute;
@@ -62,6 +63,13 @@ const OverlayButton = styled.button`
 
 const Image = () => {
   const [displayModal, changeDisplayModal] = useState(false);
+  const [modalInfo, setModalInfo] = useState({
+    title: null,
+    href: null,
+    description: null,
+    photographer: null,
+    keywords: [],
+  });
   return (
     <>
       <ImageContext.Consumer>
