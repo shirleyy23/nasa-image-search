@@ -87,7 +87,16 @@ const Image = () => {
                 <Overlay>
                   <Title>{title}</Title>
                   <OverlayButton
-                    onClick={() => changeDisplayModal(!displayModal)}
+                    onClick={() => {
+                      changeDisplayModal(!displayModal);
+                      setModalInfo({
+                        title,
+                        href,
+                        description,
+                        photographer,
+                        keywords: [...keywords],
+                      });
+                    }}
                   >
                     View Photo
                   </OverlayButton>
