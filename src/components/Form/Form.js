@@ -53,7 +53,27 @@ const StyledButton = styled.button`
 
 const Form = () => {
   const [searchVal, setSearchVal] = useState('');
+  const [formMessage, showFormMessage] = useState({
+    status: false,
+    message: '',
+  });
+  const { status, message } = formMessage;
   const imageQuery = `https://images-api.nasa.gov/search?q=${searchVal}&media_type=image`;
+
+  const validateForm = query => {
+    const specialCharsRegEx = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+    if (!query || specialCharsRegEx.test(query)) {
+      showFormMessage({
+        ...formMessage,
+        status: true,
+        message: !query
+          ? '* Please fill in the search field'
+          : '* Please enter a valid search term (ex. moon landing)',
+      });
+      return false;
+    }
+    return true;
+  };
 
   useEffect(() => {
     setSearchVal('');
@@ -66,6 +86,13 @@ const Form = () => {
         <StyledForm
           onSubmit={e => {
             e.preventDefault();
+            if (!validateForm(searchVal)) {
+              return false;
+            }
+            // Resets formMessage state if valid input is submitted following invalid input(s)
+            if (status) {
+              showFormMessage({ ...formMessage, status: !status, message: '' });
+            }
             getAPIData(imageQuery).then(data =>
               changeResults(data.collection.items)
             );
@@ -81,6 +108,7 @@ const Form = () => {
             />
           </StyledFieldset>
           <StyledButton type="submit">Search</StyledButton>
+          {status ? <MessageField>{message}</MessageField> : null}
         </StyledForm>
       )}
     </ImageContext.Consumer>
