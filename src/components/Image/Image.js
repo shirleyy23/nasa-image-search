@@ -21,7 +21,7 @@ const Overlay = styled.div`
 const Container = styled.article`
   flex-basis: 30%;
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   position: relative;
   border: none;
   &:hover ${Overlay}, &:focus ${Overlay} {
