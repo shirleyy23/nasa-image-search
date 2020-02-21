@@ -5,7 +5,6 @@ import ImageContext from '../ImageContext/ImageContext';
 
 const StyledForm = styled.form`
   padding: 1.25rem 1.75rem;
-  margin-bottom: 2rem;
 `;
 
 const StyledFieldset = styled.fieldset`
