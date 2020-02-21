@@ -5,13 +5,18 @@ const StyledModal = styled.div`
   padding: 1.75rem;
   border: 2px solid white;
   height: 70vh;
-  width: 60%;
+  width: 70%;
   overflow: auto;
   position: relative;
   background-color: #313131;
   color: white;
+  @media screen and (max-width: 991px) {
+    width: 80%;
+    height: 80vh;
+  }
   @media screen and (max-width: 575px) {
-    height: 60vh;
+    width: 90%;
+    height: 90vh;
   }
 `;
 
