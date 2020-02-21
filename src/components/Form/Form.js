@@ -61,31 +61,29 @@ const Form = () => {
   }, []);
 
   return (
-    <StyledForm onSubmit={e => e.preventDefault()}>
-      <StyledFieldset>
-        <StyledLabel htmlFor="search-images">Search images</StyledLabel>
-        <StyledInput
-          type="text"
-          name="search-images"
-          value={searchVal}
-          onChange={e => setSearchVal(e.target.value)}
-        />
-      </StyledFieldset>
-      <ImageContext.Consumer>
-        {({ changeResults }) => (
-          <StyledButton
-            type="submit"
-            onClick={() => {
-              getAPIData(imageQuery).then(data =>
-                changeResults(data.collection.items)
-              );
-            }}
-          >
-            Search
-          </StyledButton>
-        )}
-      </ImageContext.Consumer>
-    </StyledForm>
+    <ImageContext.Consumer>
+      {({ changeResults }) => (
+        <StyledForm
+          onSubmit={e => {
+            e.preventDefault();
+            getAPIData(imageQuery).then(data =>
+              changeResults(data.collection.items)
+            );
+          }}
+        >
+          <StyledFieldset>
+            <StyledLabel htmlFor="search-images">Search images</StyledLabel>
+            <StyledInput
+              type="text"
+              name="search-images"
+              value={searchVal}
+              onChange={e => setSearchVal(e.target.value)}
+            />
+          </StyledFieldset>
+          <StyledButton type="submit">Search</StyledButton>
+        </StyledForm>
+      )}
+    </ImageContext.Consumer>
   );
 };
 
