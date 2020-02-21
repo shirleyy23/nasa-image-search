@@ -113,7 +113,9 @@ const Modal = props => {
         </ImageLink>
       </DescriptionContainer>
       <hr />
-      <Keywords>Keywords: {keywords}</Keywords>
+      <Keywords>
+        Keywords: {keywords.map(keyword => keyword).join(', ')}
+      </Keywords>
     </StyledModal>
   );
 };
