@@ -71,7 +71,7 @@ const Link = styled.a`
   color: #428bca;
   font-weight: 400;
   &:visited {
-    color: inherit;
+    color: #428bca;
   }
 `;
 
