@@ -10,7 +10,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(49, 49, 49, 0.8);
   display: none;
   flex-flow: column wrap;
   align-items: flex-start;
