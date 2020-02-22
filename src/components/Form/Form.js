@@ -79,8 +79,8 @@ const Form = () => {
   const imageQuery = `https://images-api.nasa.gov/search?q=${searchVal}&media_type=image`;
 
   const validateForm = query => {
-    const specialCharsRegEx = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-    if (!query || specialCharsRegEx.test(query)) {
+    const specialCharsRegEx = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+    if (!query || specialCharsRegEx.test(query) || query === ' ') {
       showFormMessage({
         ...formMessage,
         status: true,
