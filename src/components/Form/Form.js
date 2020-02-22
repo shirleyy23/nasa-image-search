@@ -51,6 +51,16 @@ const StyledButton = styled.button`
   }
 `;
 
+const MessageField = styled.p`
+  margin-top: 0.75rem;
+  font-weight: 700;
+  color: #e60d2e;
+  flex-basis: 100%;
+  @media screen and (max-width: 767px) {
+    order: 2;
+  }
+`;
+
 const Form = () => {
   const [searchVal, setSearchVal] = useState('');
   const [formMessage, showFormMessage] = useState({
