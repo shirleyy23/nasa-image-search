@@ -30,11 +30,13 @@ const StyledLabel = styled.label`
 const StyledInput = styled.input`
   width: 100%;
   display: block;
-  margin-bottom: 1.5rem;
   background-color: #333333;
   padding: 0.5rem 0.6rem;
   border: none;
   color: white;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 0.75rem;
+  }
 `;
 
 const StyledButton = styled.button`
