@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledModal = styled.div`
   padding: 1.75rem;
@@ -95,7 +96,6 @@ const Modal = props => {
     keywords,
   } = props;
 
-  console.log(title);
   return (
     <StyledModal>
       <CloseButton onClick={() => changeModal(!displayModal)}>
@@ -123,6 +123,16 @@ const Modal = props => {
       </Keywords>
     </StyledModal>
   );
+};
+
+Modal.propTypes = {
+  changeModal: PropTypes.func.isRequired,
+  displayModal: PropTypes.bool.isRequired,
+  href: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  photographer: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  keywords: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Modal;
