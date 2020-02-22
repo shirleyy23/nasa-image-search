@@ -5,6 +5,8 @@ import ImageContext from '../ImageContext/ImageContext';
 
 const StyledForm = styled.form`
   padding: 1.25rem 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const StyledFieldset = styled.fieldset`
@@ -37,6 +39,7 @@ const StyledInput = styled.input`
 
 const StyledButton = styled.button`
   background-color: #15418c;
+  align-self: flex-end;
   transition: 0.3s ease background-color;
   text-transform: uppercase;
   font-weight: bold;
@@ -48,6 +51,9 @@ const StyledButton = styled.button`
   &:hover,
   &:focus {
     background-color: #5d7fb9;
+  }
+  @media screen and (max-width: 767px) {
+    order: 3;
   }
 `;
 
