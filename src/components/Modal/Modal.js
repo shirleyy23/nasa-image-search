@@ -119,7 +119,8 @@ const Modal = props => {
       </DescriptionContainer>
       <hr />
       <Keywords>
-        Keywords: {keywords.map(keyword => keyword).join(', ')}
+        Keywords: &nbsp;
+        {keywords.length > 0 ? keywords.map(keyword => keyword).join(', ') : ''}
       </Keywords>
     </StyledModal>
   );

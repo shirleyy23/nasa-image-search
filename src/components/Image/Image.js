@@ -106,7 +106,7 @@ const Image = () => {
                         href,
                         description,
                         photographer,
-                        keywords: [...keywords],
+                        keywords,
                       });
                     }}
                   >
