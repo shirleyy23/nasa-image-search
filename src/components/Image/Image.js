@@ -74,6 +74,14 @@ const Image = () => {
     photographer: null,
     keywords: [],
   });
+
+  const shortenTitle = str => {
+    if (str.length > 50) {
+      const newTitle = str.slice(0, 50).concat('', '...');
+      return newTitle;
+    }
+    return str;
+  };
   return (
     <>
       <ImageContext.Consumer>
@@ -89,7 +97,7 @@ const Image = () => {
             return (
               <Container key={`results-image-${index}`}>
                 <Overlay>
-                  <Title>{title}</Title>
+                  <Title>{shortenTitle(title)}</Title>
                   <OverlayButton
                     onClick={() => {
                       changeDisplayModal(!displayModal);
