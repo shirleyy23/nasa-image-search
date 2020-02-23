@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from '../Image/Image';
+import SearchContext from '../SearchContext/SearchContext';
 
 const Container = styled.section`
   padding: 1.25rem 1.75rem;
@@ -14,11 +15,24 @@ const Container = styled.section`
   }
 `;
 
+const Title = styled.h2`
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 1.75rem;
+  flex-basis: 100%;
+  align-self: flex-start;
+`;
+
 const Results = () => {
   return (
-    <Container>
-      <Image />
-    </Container>
+    <SearchContext.Consumer>
+      {({ query }) => (
+        <Container>
+          {query ? <Title>Results for &quot;{query}&quot;</Title> : null}
+          <Image />
+        </Container>
+      )}
+    </SearchContext.Consumer>
   );
 };
 
