@@ -24,20 +24,25 @@ const Title = styled.h2`
   align-self: flex-start;
 `;
 
+const findImages = (search, images) => {
+  if (images.length > 0) {
+    return `Results for "${search}"`;
+  }
+  return `No images found for "${search}"`;
+};
+
 const Results = () => {
   return (
     <ImageContext.Consumer>
-      {({ results }) => (
+      {({ results, resultsLoading, resultsLoadingText }) => (
         <SearchContext.Consumer>
           {({ query }) => (
             <Container>
-              {query ? (
-                <Title>
-                  {results.length > 0
-                    ? `Results for "${query}"`
-                    : `No results found for "${query}"`}
-                </Title>
-              ) : null}
+              {resultsLoading ? (
+                <Title>{findImages(query, results)}</Title>
+              ) : (
+                <Title>{resultsLoadingText}</Title>
+              )}
               <Image />
             </Container>
           )}

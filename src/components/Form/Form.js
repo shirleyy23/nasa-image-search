@@ -101,7 +101,12 @@ const Form = () => {
 
   return (
     <ImageContext.Consumer>
-      {({ changeResults }) => (
+      {({
+        changeResults,
+        resultsLoading,
+        setResultsLoading,
+        setResultsLoadingText,
+      }) => (
         <SearchContext.Consumer>
           {({ updateQuery }) => (
             <StyledForm
@@ -119,7 +124,8 @@ const Form = () => {
                   });
                 }
                 updateQuery(searchVal);
-                getAPIData(imageQuery).then(data =>
+                setResultsLoadingText(`Searching images for ${searchVal}...`);
+                getAPIData(imageQuery, setResultsLoading).then(data =>
                   changeResults(data.collection.items)
                 );
               }}

@@ -9,6 +9,9 @@ import Wrapper from './components/Wrapper/Wrapper';
 function App() {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
+  const [resultsLoading, setResultsLoading] = useState(false);
+  const [resultsLoadingText, setResultsLoadingText] = useState('');
+  const [backgroundLoading, setBackgroundLoading] = useState(false);
   useEffect(() => {
     setResults([]);
     return () => setResults([]);
@@ -18,6 +21,12 @@ function App() {
       <ImageContext.Provider
         value={{
           results,
+          resultsLoading,
+          setResultsLoading,
+          backgroundLoading,
+          setBackgroundLoading,
+          resultsLoadingText,
+          setResultsLoadingText,
           changeResults: e => setResults(e),
         }}
       >

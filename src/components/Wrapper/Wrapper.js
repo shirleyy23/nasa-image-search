@@ -45,12 +45,14 @@ const BackgroundPhotographer = styled.h6`
 const Wrapper = () => {
   const [background, setBackground] = useState({});
 
+  const [loading, changeLoading] = useState(false);
+
   const { link, title, copyright } = background;
 
   const wrapperBackgroundImage = { backgroundImage: `url('${link}')` };
   useEffect(() => {
     setBackground(background);
-    getAPIData(apiURL).then(data => {
+    getAPIData(apiURL, changeLoading).then(data => {
       const { title, copyright } = data;
 
       // Check to see if a video or image is being returned from the API

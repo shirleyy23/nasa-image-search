@@ -1,12 +1,14 @@
 // API Utilities
-
-export async function getAPIData(url) {
+export async function getAPIData(url, changeLoadingState) {
   try {
     const response = await fetch(url);
     const data = await response.json();
+    if (data) {
+      changeLoadingState(true);
+    }
     return data;
   } catch (rejectedValue) {
-    console.log(`ERROR: ${rejectedValue}`);
+    throw Error(`ERROR: ${rejectedValue}`);
   }
 }
 
