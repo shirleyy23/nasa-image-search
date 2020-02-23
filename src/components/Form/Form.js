@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getAPIData } from '../../Utilities';
 import ImageContext from '../ImageContext/ImageContext';
+import SearchContext from '../SearchContext/SearchContext';
 
 const StyledForm = styled.form`
   padding: 1.25rem 1.75rem;
@@ -101,33 +102,42 @@ const Form = () => {
   return (
     <ImageContext.Consumer>
       {({ changeResults }) => (
-        <StyledForm
-          onSubmit={e => {
-            e.preventDefault();
-            if (!validateForm(searchVal)) {
-              return false;
-            }
-            // Resets formMessage state if valid input is submitted following invalid input(s)
-            if (status) {
-              showFormMessage({ ...formMessage, status: !status, message: '' });
-            }
-            getAPIData(imageQuery).then(data =>
-              changeResults(data.collection.items)
-            );
-          }}
-        >
-          <StyledFieldset>
-            <StyledLabel htmlFor="search-images">Search images</StyledLabel>
-            <StyledInput
-              type="text"
-              name="search-images"
-              value={searchVal}
-              onChange={e => setSearchVal(e.target.value)}
-            />
-          </StyledFieldset>
-          <StyledButton type="submit">Search</StyledButton>
-          {status ? <MessageField>{message}</MessageField> : null}
-        </StyledForm>
+        <SearchContext.Consumer>
+          {({ updateQuery }) => (
+            <StyledForm
+              onSubmit={e => {
+                e.preventDefault();
+                if (!validateForm(searchVal)) {
+                  return false;
+                }
+                // Resets formMessage state if valid input is submitted following invalid input(s)
+                if (status) {
+                  showFormMessage({
+                    ...formMessage,
+                    status: !status,
+                    message: '',
+                  });
+                }
+                updateQuery(searchVal);
+                getAPIData(imageQuery).then(data =>
+                  changeResults(data.collection.items)
+                );
+              }}
+            >
+              <StyledFieldset>
+                <StyledLabel htmlFor="search-images">Search images</StyledLabel>
+                <StyledInput
+                  type="text"
+                  name="search-images"
+                  value={searchVal}
+                  onChange={e => setSearchVal(e.target.value)}
+                />
+              </StyledFieldset>
+              <StyledButton type="submit">Search</StyledButton>
+              {status ? <MessageField>{message}</MessageField> : null}
+            </StyledForm>
+          )}
+        </SearchContext.Consumer>
       )}
     </ImageContext.Consumer>
   );
