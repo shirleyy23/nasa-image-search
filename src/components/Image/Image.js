@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ImageContext from '../ImageContext/ImageContext';
 import ModalWrapper from '../Modal/ModalWrapper';
+import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
 
 const Overlay = styled.div`
@@ -48,16 +49,8 @@ const Title = styled.h3`
   flex-basis: 100%;
 `;
 
-const OverlayButton = styled.button`
+const OverlayButton = styled(Button)`
   background-color: #15418c;
-  transition: 0.3s ease background-color;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 0.5rem 0.6rem;
-  color: white;
-  border: none;
-  display: inline-block;
-  cursor: pointer;
   font-size: 0.8rem;
   &:hover,
   &:focus {

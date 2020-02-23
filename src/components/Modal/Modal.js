@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Button from '../Button/Button';
 
 const StyledModal = styled.div`
   padding: 1.75rem;
@@ -21,18 +22,12 @@ const StyledModal = styled.div`
   }
 `;
 
-const CloseButton = styled.button`
+const CloseButton = styled(Button)`
   position: absolute;
   right: 1rem;
   top: 1rem;
-  color: white;
   background-color: #555555;
-  padding: 0.5rem 0.6rem;
-  cursor: pointer;
-  border: none;
   box-shadow: none;
-  font-weight: 700;
-  transition: 0.3s ease all;
 `;
 
 const StyledFigure = styled.figure`

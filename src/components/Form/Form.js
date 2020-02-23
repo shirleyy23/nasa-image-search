@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { getAPIData } from '../../Utilities';
 import ImageContext from '../ImageContext/ImageContext';
 import SearchContext from '../SearchContext/SearchContext';
+import Button from '../Button/Button';
 
 const StyledForm = styled.form`
   padding: 1.25rem 1.75rem;
@@ -40,17 +41,9 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled(Button)`
   background-color: #15418c;
   align-self: flex-end;
-  transition: 0.3s ease background-color;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 0.5rem 0.6rem;
-  color: white;
-  border: none;
-  display: inline-block;
-  cursor: pointer;
   &:hover,
   &:focus {
     background-color: #5d7fb9;
