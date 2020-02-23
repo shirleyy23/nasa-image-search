@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from '../Image/Image';
 import SearchContext from '../SearchContext/SearchContext';
+import ImageContext from '../ImageContext/ImageContext';
 
 const Container = styled.section`
   padding: 1.25rem 1.75rem;
@@ -25,14 +26,24 @@ const Title = styled.h2`
 
 const Results = () => {
   return (
-    <SearchContext.Consumer>
-      {({ query }) => (
-        <Container>
-          {query ? <Title>Results for &quot;{query}&quot;</Title> : null}
-          <Image />
-        </Container>
+    <ImageContext.Consumer>
+      {({ results }) => (
+        <SearchContext.Consumer>
+          {({ query }) => (
+            <Container>
+              {query ? (
+                <Title>
+                  {results.length > 0
+                    ? `Results for "${query}"`
+                    : `No results found for "${query}"`}
+                </Title>
+              ) : null}
+              <Image />
+            </Container>
+          )}
+        </SearchContext.Consumer>
       )}
-    </SearchContext.Consumer>
+    </ImageContext.Consumer>
   );
 };
 
