@@ -12,7 +12,7 @@ const Overlay = styled.div`
   height: 100%;
   background-color: rgba(49, 49, 49, 0.8);
   display: none;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: flex-start;
   justify-content: space-between;
   transition: 0.5s ease all;
@@ -21,17 +21,20 @@ const Overlay = styled.div`
 const Container = styled.article`
   flex-basis: 30%;
   height: auto;
-  margin-bottom: 1.5rem;
   position: relative;
+  margin-bottom: 1.5rem;
+  margin-right: 3%;
   border: none;
   &:hover ${Overlay}, &:focus ${Overlay} {
     display: flex;
   }
   @media screen and (min-width: 576px) and (max-width: 991px) {
     flex-basis: 47.5%;
+    margin-right: 2.5%;
   }
   @media screen and (max-width: 575px) {
     flex-basis: 100%;
+    margin-right: 0;
   }
 `;
 const StyledImage = styled.img`
@@ -42,6 +45,7 @@ const Title = styled.h3`
   font-weight: bold;
   font-style: italic;
   color: white;
+  flex-basis: 100%;
 `;
 
 const OverlayButton = styled.button`

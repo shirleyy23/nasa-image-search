@@ -10,7 +10,7 @@ const Container = styled.section`
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   @media screen and (max-width: 767px) {
     overflow: visible;
   }
