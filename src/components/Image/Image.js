@@ -88,7 +88,7 @@ const Image = () => {
             } = result.data[0];
             const { href } = result.links[0];
             return (
-              <Container key={`results-image-${index}`}>
+              <Container key={`results-image-${index + 1}`}>
                 <Overlay>
                   <Title>{shortenTitle(title)}</Title>
                   <OverlayButton
