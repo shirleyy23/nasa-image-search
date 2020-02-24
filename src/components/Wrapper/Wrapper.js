@@ -76,7 +76,7 @@ const Wrapper = () => {
       );
     });
     return () => setBackground({});
-  }, []);
+  }, [link, title, copyright, setBackground]);
 
   return (
     <StyledWrapper style={wrapperBackground}>
