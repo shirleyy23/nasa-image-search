@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { getAPIData } from '../../Utilities';
 import ImageContext from '../ImageContext/ImageContext';
@@ -86,11 +86,6 @@ const Form = () => {
     }
     return true;
   };
-
-  useEffect(() => {
-    setSearchVal('');
-    return () => setSearchVal('');
-  }, []);
 
   return (
     <ImageContext.Consumer>
