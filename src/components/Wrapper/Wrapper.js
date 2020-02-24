@@ -5,9 +5,6 @@ import Search from '../Search/Search';
 import '../../../node_modules/css.escape/css.escape';
 
 const StyledWrapper = styled.div`
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
   position: relative;
@@ -46,14 +43,21 @@ const BackgroundPhotographer = styled.h6`
 const Wrapper = () => {
   const [background, setBackground] = useState({});
 
-  const [loading, changeLoading] = useState(false);
-
   const { link, title, copyright } = background;
 
-  const wrapperBackgroundImage = { backgroundImage: `url('${link}')` };
+  const [backgroundLoading, setBackgroundLoading] = useState(false);
+
+  const wrapperBackground = {
+    backgroundImage: `url('${link}')`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    backgroundColor: 'black',
+  };
+
   useEffect(() => {
     setBackground(background);
-    getAPIData(apiURL, changeLoading).then(data => {
+    getAPIData(apiURL, setBackgroundLoading).then(data => {
       const { title, copyright } = data;
 
       // Check to see if a video or image is being returned from the API
@@ -75,7 +79,7 @@ const Wrapper = () => {
   }, []);
 
   return (
-    <StyledWrapper style={wrapperBackgroundImage}>
+    <StyledWrapper style={wrapperBackground}>
       <div className="modal__root" />
       <Search />
       <BackgroundDetails>
