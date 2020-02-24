@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getAPIData, getVideoID, apiURL } from '../../Utilities';
 import Search from '../Search/Search';
+import '../../../node_modules/css.escape/css.escape';
 
 const StyledWrapper = styled.div`
   background-size: cover;
@@ -58,7 +59,9 @@ const Wrapper = () => {
       // Check to see if a video or image is being returned from the API
       // If a video is  returned, then use the Youtube preview image as the background image for the app
       const mediaLink =
-        data.media_type === 'video' ? getVideoID(data.url) : data.hdurl;
+        data.media_type === 'video'
+          ? CSS.escape(getVideoID(data.url))
+          : CSS.escape(data.hdurl);
 
       setBackground(
         {
