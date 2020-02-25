@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Form from '../Form/Form';
 import Results from '../Results/Results';
@@ -36,13 +36,14 @@ const Title = styled.h1`
 `;
 
 const Search = () => {
+  const [counter, setCounter] = useState(12);
   return (
     <StyledSearch>
       <Header>
         <Title>NASA Image Search</Title>
       </Header>
-      <Form />
-      <Results />
+      <Form counter={counter} setCounter={setCounter} />
+      <Results counter={counter} setCounter={setCounter} />
     </StyledSearch>
   );
 };
