@@ -58,7 +58,7 @@ const MessageField = styled.p`
   }
 `;
 
-const Form = () => {
+const Form = props => {
   const [searchVal, setSearchVal] = useState('');
   const [formMessage, showFormMessage] = useState({
     status: false,
@@ -66,6 +66,8 @@ const Form = () => {
   });
   const { status, message } = formMessage;
   const imageQuery = `https://images-api.nasa.gov/search?q=${searchVal}&media_type=image`;
+
+  const { setCounter } = props;
 
   const validateForm = query => {
     const specialCharsRegEx = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
@@ -111,6 +113,7 @@ const Form = () => {
                 getAPIData(imageQuery, setResultsLoading).then(data =>
                   changeResults(data.collection.items)
                 );
+                setCounter(12);
               }}
             >
               <StyledFieldset>
