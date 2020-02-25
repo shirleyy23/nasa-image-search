@@ -42,12 +42,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledButton = styled(Button)`
-  background-color: #15418c;
   align-self: flex-end;
-  &:hover,
-  &:focus {
-    background-color: #5d7fb9;
-  }
   @media screen and (max-width: 767px) {
     order: 3;
   }
@@ -127,7 +122,9 @@ const Form = () => {
                   onChange={e => setSearchVal(e.target.value)}
                 />
               </StyledFieldset>
-              <StyledButton type="submit">Search</StyledButton>
+              <StyledButton primary type="submit">
+                Search
+              </StyledButton>
               {status ? <MessageField>{message}</MessageField> : null}
             </StyledForm>
           )}

@@ -50,12 +50,7 @@ const Title = styled.h3`
 `;
 
 const OverlayButton = styled(Button)`
-  background-color: #15418c;
   font-size: 0.8rem;
-  &:hover,
-  &:focus {
-    background-color: #5d7fb9;
-  }
 `;
 
 const Image = () => {
@@ -92,6 +87,7 @@ const Image = () => {
                 <Overlay>
                   <Title>{shortenTitle(title)}</Title>
                   <OverlayButton
+                    primary
                     onClick={() => {
                       changeDisplayModal(!displayModal);
                       setModalInfo({

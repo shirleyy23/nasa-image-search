@@ -26,7 +26,6 @@ const CloseButton = styled(Button)`
   position: absolute;
   right: 1rem;
   top: 1rem;
-  background-color: #555555;
   box-shadow: none;
 `;
 
