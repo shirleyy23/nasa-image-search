@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Image from '../Image/Image';
 import SearchContext from '../SearchContext/SearchContext';
 import ImageContext from '../ImageContext/ImageContext';
+import Button from '../Button/Button';
 
 const Container = styled.section`
   padding: 1.25rem 1.75rem;
@@ -24,14 +25,21 @@ const Title = styled.h2`
   align-self: flex-start;
 `;
 
-const findImages = (search, images) => {
-  if (images.length > 0) {
-    return `Results for "${search}"`;
-  }
-  return `No images found for "${search}"`;
-};
+const StyledButton = styled(Button)`
+  flex-basis: 100%;
+  height: 3.1rem;
+`;
 
-const Results = () => {
+const Results = props => {
+  const { counter, setCounter } = props;
+
+  const findImages = (search, images) => {
+    if (images.length > 0) {
+      return `Results for "${search}" (${counter}/${images.length} images)`;
+    }
+    return `No images found for "${search}"`;
+  };
+
   return (
     <ImageContext.Consumer>
       {({ results, resultsLoading, resultsLoadingText }) => (
@@ -43,7 +51,21 @@ const Results = () => {
               ) : (
                 <Title>{resultsLoadingText}</Title>
               )}
-              <Image />
+              <Image counter={counter} />
+              {results.length > 0 ? (
+                <StyledButton
+                  primary
+                  onClick={() =>
+                    setCounter(
+                      counter + 12 > results.length
+                        ? results.length
+                        : counter + 12
+                    )
+                  }
+                >
+                  More Images
+                </StyledButton>
+              ) : null}
             </Container>
           )}
         </SearchContext.Consumer>
