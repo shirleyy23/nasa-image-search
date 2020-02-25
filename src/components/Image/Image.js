@@ -53,7 +53,7 @@ const OverlayButton = styled(Button)`
   font-size: 0.8rem;
 `;
 
-const Image = () => {
+const Image = props => {
   const [displayModal, changeDisplayModal] = useState(false);
   const [modalInfo, setModalInfo] = useState({
     title: null,
@@ -62,6 +62,8 @@ const Image = () => {
     photographer: null,
     keywords: [],
   });
+
+  const { counter } = props;
 
   const shortenTitle = str => {
     if (str.length > 50) {
@@ -74,7 +76,7 @@ const Image = () => {
     <>
       <ImageContext.Consumer>
         {({ results }) =>
-          results.map((result, index) => {
+          results.slice(0, counter).map((result, index) => {
             const {
               title,
               description,
