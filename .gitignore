@@ -83,3 +83,6 @@ Temporary Items
 # Testing #
 /coverage
 
+
+# Local Netlify folder
+.netlify
