@@ -15,7 +15,7 @@ export async function getAPIData(url, changeLoadingState) {
 // Needed when API returns a featured video instead of an image in the API
 export function getVideoID(str) {
   const videoID = str.split('/embed/')[1].split('?')[0];
-  return `http://img.youtube.com/vi/${videoID}/hqdefault.jpg`;
+  return `https://img.youtube.com/vi/${videoID}/hqdefault.jpg`;
 }
 
 // Demo API
