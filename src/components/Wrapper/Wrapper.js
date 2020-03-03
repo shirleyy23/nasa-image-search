@@ -27,7 +27,7 @@ const BackgroundDetails = styled.section`
     width: 30%;
   }
   @media screen and (max-width: 575px) {
-    width: 40%;
+    width: 100%;
   }
 `;
 
