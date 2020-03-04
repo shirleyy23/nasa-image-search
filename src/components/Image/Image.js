@@ -42,6 +42,7 @@ const StyledImage = styled.img`
   width: 100%;
   height: 200px;
   object-fit: cover;
+  object-position: top center;
 `;
 const Title = styled.h3`
   font-weight: bold;
