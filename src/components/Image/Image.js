@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import objectFitPolyfill from 'objectFitPolyfill';
 import ImageContext from '../ImageContext/ImageContext';
 import ModalWrapper from '../Modal/ModalWrapper';
 import Button from '../Button/Button';
@@ -106,7 +107,12 @@ const Image = props => {
                     View Photo
                   </OverlayButton>
                 </Overlay>
-                <StyledImage src={href} alt={`${title} image`} />
+                <StyledImage
+                  src={href}
+                  alt={`${title} image`}
+                  data-object-fit="cover"
+                  data-object-position="top center"
+                />
               </Container>
             );
           })
