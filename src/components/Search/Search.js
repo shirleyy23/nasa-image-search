@@ -12,7 +12,6 @@ const StyledSearch = styled.section`
   position: relative;
   border: 2px solid white;
   position: relative;
-  margin: 0 auto;
   border-radius: 0.25rem;
   @media screen and (max-width: 767px) {
     overflow-y: auto;
