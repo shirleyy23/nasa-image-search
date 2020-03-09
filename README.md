@@ -2,7 +2,7 @@
 
 ## About
 
-A React-based NASA image search app that utilizes the NASA Image and Video Library and Astronomy Picture of the Day APIs. The app is built with React features including hooks, Context API, and portals.
+A React-based NASA image search app that utilizes the [NASA Image and Video Library](https://api.nasa.gov/) and [Astronomy Picture of the Day APIs](https://api.nasa.gov/). The app is built with React features including hooks, Context API, and portals.
 
 Styling of the app is done with [styled components](https://github.com/styled-components/styled-components).
 
