@@ -86,12 +86,7 @@ const Form = props => {
 
   return (
     <ImageContext.Consumer>
-      {({
-        changeResults,
-        resultsLoading,
-        setResultsLoading,
-        setResultsLoadingText,
-      }) => (
+      {({ changeResults, setResultsLoading, setResultsLoadingText }) => (
         <SearchContext.Consumer>
           {({ updateQuery }) => (
             <StyledForm
