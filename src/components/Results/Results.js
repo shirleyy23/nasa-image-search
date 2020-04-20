@@ -34,8 +34,9 @@ const Results = props => {
   const { counter, setCounter } = props;
 
   const findImages = (search, images) => {
+    const initialCount = images.length >= 12 ? counter : images.length;
     if (images.length > 0) {
-      return `Results for "${search}" (${counter}/${images.length} images)`;
+      return `Results for "${search}" (${initialCount}/${images.length} images)`;
     }
     return `No images found for "${search}"`;
   };
