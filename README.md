@@ -8,7 +8,7 @@ Styling of the app is done with [styled components](https://github.com/styled-co
 
 The app is supported in IE11 through [React's IE polyfill](https://github.com/facebook/create-react-app/tree/master/packages/react-app-polyfill) and the [object-fit polyfill](https://github.com/constancecchen/object-fit-polyfill).
 
-DEMO: [https://nasa-api-image-search.netlify.com](https://nasa-api-image-search.netlify.com)
+DEMO: [https://nasa-api-image-search.netlify.app](https://nasa-api-image-search.netlify.app)
 
 ### Installing
 
