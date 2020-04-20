@@ -41,7 +41,7 @@ const Search = () => {
       <Header>
         <Title>NASA Image Search</Title>
       </Header>
-      <Form counter={counter} setCounter={setCounter} />
+      <Form setCounter={setCounter} />
       <Results counter={counter} setCounter={setCounter} />
     </StyledSearch>
   );

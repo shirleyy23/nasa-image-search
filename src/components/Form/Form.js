@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { getAPIData } from '../../Utilities';
 import ImageContext from '../ImageContext/ImageContext';
 import SearchContext from '../SearchContext/SearchContext';
@@ -130,6 +131,10 @@ const Form = props => {
       )}
     </ImageContext.Consumer>
   );
+};
+
+Form.propTypes = {
+  setCounter: PropTypes.func.isRequired,
 };
 
 export default Form;

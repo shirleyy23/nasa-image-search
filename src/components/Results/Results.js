@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Image from '../Image/Image';
 import SearchContext from '../SearchContext/SearchContext';
 import ImageContext from '../ImageContext/ImageContext';
@@ -73,6 +74,11 @@ const Results = props => {
       )}
     </ImageContext.Consumer>
   );
+};
+
+Results.propTypes = {
+  counter: PropTypes.number.isRequired,
+  setCounter: PropTypes.func.isRequired,
 };
 
 export default Results;

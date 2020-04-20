@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import objectFitPolyfill from 'objectFitPolyfill';
+import PropTypes from 'prop-types';
 import ImageContext from '../ImageContext/ImageContext';
 import ModalWrapper from '../Modal/ModalWrapper';
 import Button from '../Button/Button';
@@ -129,6 +130,10 @@ const Image = props => {
       ) : null}
     </>
   );
+};
+
+Image.propTypes = {
+  counter: PropTypes.number.isRequired,
 };
 
 export default Image;
