@@ -52,7 +52,7 @@ const Results = props => {
                 <Title>{resultsLoadingText}</Title>
               )}
               <Image counter={counter} />
-              {results.length > 0 ? (
+              {results.length > 0 && results.length > 12 ? (
                 <StyledButton
                   primary
                   onClick={() =>
