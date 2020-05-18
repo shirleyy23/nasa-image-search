@@ -1,63 +1,16 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { getAPIData } from '../../Utilities';
 import ImageContext from '../ImageContext/ImageContext';
 import SearchContext from '../SearchContext/SearchContext';
-import Button from '../Button/Button';
-
-const StyledForm = styled.form`
-  padding: 1.25rem 1.75rem;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const StyledFieldset = styled.fieldset`
-  border: none;
-  padding: 0;
-  display: inline-block;
-  height: auto;
-  width: 50%;
-  margin-right: 2rem;
-  @media screen and (max-width: 767px) {
-    width: 100%;
-  }
-`;
-
-const StyledLabel = styled.label`
-  width: 100%;
-  display: block;
-  margin-bottom: 0.5rem;
-`;
-
-const StyledInput = styled.input`
-  width: 100%;
-  display: block;
-  background-color: #333333;
-  padding: 0.5rem 0.6rem;
-  border: none;
-  color: white;
-  @media screen and (max-width: 767px) {
-    margin-bottom: 0.75rem;
-  }
-`;
-
-const StyledButton = styled(Button)`
-  align-self: flex-end;
-  @media screen and (max-width: 767px) {
-    order: 3;
-  }
-`;
-
-const MessageField = styled.p`
-  margin-top: 0.75rem;
-  font-weight: 700;
-  color: #e60d2e;
-  flex-basis: 100%;
-  @media screen and (max-width: 767px) {
-    order: 2;
-  }
-`;
+import {
+  StyledForm,
+  StyledFieldset,
+  StyledLabel,
+  StyledInput,
+  StyledButton,
+  MessageField,
+} from './Styles/FormStyled';
 
 const Form = props => {
   const [searchVal, setSearchVal] = useState('');
