@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'normalize.css';
 import './index.css';
-import ImageContext from './components/ImageContext/ImageContext';
+import ImageProvider from './components/ImageContext/ImageContext';
 import SearchProvider from './components/SearchContext/SearchContext';
 import Wrapper from './components/Wrapper/Wrapper';
 
@@ -17,8 +17,8 @@ function App() {
   }, []);
   return (
     <React.StrictMode>
-      <ImageContext.Provider
-        value={{
+      <ImageProvider
+        image={{
           results,
           resultsLoading,
           setResultsLoading,
@@ -34,7 +34,7 @@ function App() {
             <Wrapper />
           </div>
         </SearchProvider>
-      </ImageContext.Provider>
+      </ImageProvider>
     </React.StrictMode>
   );
 }

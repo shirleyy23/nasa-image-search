@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from '../Image/Image';
 import { useSearch } from '../SearchContext/SearchContext';
-import ImageContext from '../ImageContext/ImageContext';
+import { useImage } from '../ImageContext/ImageContext';
 import { Container, Title, StyledButton } from './Styles/ResultsStyled';
 
 const Results = props => {
@@ -11,6 +11,10 @@ const Results = props => {
   const { search } = useSearch();
 
   const { query } = search;
+
+  const { image } = useImage();
+
+  const { results, resultsLoading, resultsLoadingText } = image;
 
   const findImages = (term, images) => {
     const initialCount = images.length >= 12 ? counter : images.length;
@@ -21,30 +25,26 @@ const Results = props => {
   };
 
   return (
-    <ImageContext.Consumer>
-      {({ results, resultsLoading, resultsLoadingText }) => (
-        <Container>
-          {resultsLoading ? (
-            <Title>{findImages(query, results)}</Title>
-          ) : (
-            <Title>{resultsLoadingText}</Title>
-          )}
-          <Image counter={counter} />
-          {results.length > 0 && results.length > 12 ? (
-            <StyledButton
-              primary
-              onClick={() =>
-                setCounter(
-                  counter + 12 > results.length ? results.length : counter + 12
-                )
-              }
-            >
-              More Images
-            </StyledButton>
-          ) : null}
-        </Container>
+    <Container>
+      {resultsLoading ? (
+        <Title>{findImages(query, results)}</Title>
+      ) : (
+        <Title>{resultsLoadingText}</Title>
       )}
-    </ImageContext.Consumer>
+      <Image counter={counter} />
+      {results.length > 0 && results.length > 12 ? (
+        <StyledButton
+          primary
+          onClick={() =>
+            setCounter(
+              counter + 12 > results.length ? results.length : counter + 12
+            )
+          }
+        >
+          More Images
+        </StyledButton>
+      ) : null}
+    </Container>
   );
 };
 
