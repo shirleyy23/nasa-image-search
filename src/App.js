@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import 'normalize.css';
 import './index.css';
 import ImageContext from './components/ImageContext/ImageContext';
