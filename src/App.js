@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'normalize.css';
 import './index.css';
 import ImageContext from './components/ImageContext/ImageContext';
-import SearchContext from './components/SearchContext/SearchContext';
+import SearchProvider from './components/SearchContext/SearchContext';
 import Wrapper from './components/Wrapper/Wrapper';
 
 function App() {
@@ -29,13 +29,11 @@ function App() {
           changeResults: e => setResults(e),
         }}
       >
-        <SearchContext.Provider
-          value={{ query, updateQuery: e => setQuery(e) }}
-        >
+        <SearchProvider search={{ query, updateQuery: e => setQuery(e) }}>
           <div className="App">
             <Wrapper />
           </div>
-        </SearchContext.Provider>
+        </SearchProvider>
       </ImageContext.Provider>
     </React.StrictMode>
   );
