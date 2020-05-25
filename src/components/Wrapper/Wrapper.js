@@ -14,8 +14,6 @@ const Wrapper = () => {
 
   const { link, title, copyright } = background;
 
-  const [backgroundLoading, setBackgroundLoading] = useState(false);
-
   const wrapperBackground = {
     backgroundImage: `url('${link}')`,
     backgroundSize: 'cover',
