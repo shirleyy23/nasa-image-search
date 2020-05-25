@@ -26,7 +26,7 @@ const Results = props => {
 
   return (
     <Container>
-      {resultsLoading ? (
+      {results.length >= 1 ? (
         <Title>{findImages(query, results)}</Title>
       ) : (
         <Title>{resultsLoadingText}</Title>
