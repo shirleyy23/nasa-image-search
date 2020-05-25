@@ -29,7 +29,7 @@ const Form = props => {
 
   const { image } = useImage();
 
-  const { changeResults, setResultsLoading, setResultsLoadingText } = image;
+  const { changeResults, setResultsLoadingText } = image;
 
   const validateForm = query => {
     const specialCharsRegEx = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;

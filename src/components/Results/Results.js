@@ -14,7 +14,7 @@ const Results = props => {
 
   const { image } = useImage();
 
-  const { results, resultsLoading, resultsLoadingText } = image;
+  const { results, resultsLoadingText } = image;
 
   const findImages = (term, images) => {
     const initialCount = images.length >= 12 ? counter : images.length;

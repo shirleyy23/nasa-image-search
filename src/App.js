@@ -8,7 +8,6 @@ import Wrapper from './components/Wrapper/Wrapper';
 function App() {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
-  const [resultsLoading, setResultsLoading] = useState(false);
   const [resultsLoadingText, setResultsLoadingText] = useState('');
   const [backgroundLoading, setBackgroundLoading] = useState(false);
   useEffect(() => {
@@ -20,8 +19,6 @@ function App() {
       <ImageProvider
         image={{
           results,
-          resultsLoading,
-          setResultsLoading,
           backgroundLoading,
           setBackgroundLoading,
           resultsLoadingText,
