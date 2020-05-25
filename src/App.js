@@ -26,7 +26,7 @@ function App() {
           setBackgroundLoading,
           resultsLoadingText,
           setResultsLoadingText,
-          changeResults: e => setResults(e),
+          changeResults: e => setResults(e.collection.items),
         }}
       >
         <SearchProvider search={{ query, updateQuery: e => setQuery(e) }}>

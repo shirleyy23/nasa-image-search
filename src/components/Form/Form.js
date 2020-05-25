@@ -63,9 +63,7 @@ const Form = props => {
         }
         updateQuery(searchVal);
         setResultsLoadingText(`Searching images for ${searchVal}...`);
-        getAPIData(imageQuery, setResultsLoading).then(data =>
-          changeResults(data.collection.items)
-        );
+        getAPIData(imageQuery, changeResults);
         setCounter(12);
       }}
     >
