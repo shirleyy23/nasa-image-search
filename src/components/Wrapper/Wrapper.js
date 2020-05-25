@@ -40,10 +40,8 @@ const Wrapper = () => {
   };
 
   useEffect(() => {
-    setBackground(background);
     getAPIData(apiURL, getBackgroundImage);
-    return () => setBackground({});
-  }, [link, title, copyright, setBackground]);
+  }, []);
 
   return (
     <StyledWrapper style={wrapperBackground}>
