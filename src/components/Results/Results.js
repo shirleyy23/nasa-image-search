@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import Image from '../Image/Image';
 import { useSearch } from '../SearchContext/SearchContext';
 import { useImage } from '../ImageContext/ImageContext';
 import { Container, Title, StyledButton } from './Styles/ResultsStyled';
 
-const Results = props => {
-  const { counter, setCounter } = props;
+const Results = () => {
+  const [counter, setCounter] = useState(12);
 
   const { search } = useSearch();
 
@@ -46,11 +45,6 @@ const Results = props => {
       ) : null}
     </Container>
   );
-};
-
-Results.propTypes = {
-  counter: PropTypes.number.isRequired,
-  setCounter: PropTypes.func.isRequired,
 };
 
 export default Results;

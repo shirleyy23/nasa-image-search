@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { getAPIData } from '../../Utilities';
 import { useImage } from '../ImageContext/ImageContext';
 import { useSearch } from '../SearchContext/SearchContext';
@@ -12,7 +11,7 @@ import {
   MessageField,
 } from './Styles/FormStyled';
 
-const Form = props => {
+const Form = () => {
   const [searchVal, setSearchVal] = useState('');
   const [formMessage, showFormMessage] = useState({
     status: false,
@@ -20,8 +19,6 @@ const Form = props => {
   });
   const { status, message } = formMessage;
   const imageQuery = `https://images-api.nasa.gov/search?q=${searchVal}&media_type=image`;
-
-  const { setCounter } = props;
 
   const { search } = useSearch();
 
@@ -64,7 +61,6 @@ const Form = props => {
         updateQuery(searchVal);
         setResultsLoadingText(`Searching images for ${searchVal}...`);
         getAPIData(imageQuery, changeResults);
-        setCounter(12);
       }}
     >
       <StyledFieldset>
@@ -82,10 +78,6 @@ const Form = props => {
       {status ? <MessageField>{message}</MessageField> : null}
     </StyledForm>
   );
-};
-
-Form.propTypes = {
-  setCounter: PropTypes.func.isRequired,
 };
 
 export default Form;
