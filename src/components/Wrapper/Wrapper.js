@@ -22,26 +22,26 @@ const Wrapper = () => {
     backgroundColor: 'black',
   };
 
+  const getBackgroundImage = data => {
+    const { title, copyright } = data;
+
+    // Check to see if a video or image is being returned from the API
+    // If a video is  returned, then use the Youtube preview image as the background image for the app
+    const mediaLink =
+      data.media_type === 'video'
+        ? CSS.escape(getVideoID(data.url))
+        : CSS.escape(data.hdurl);
+
+    setBackground({
+      link: mediaLink,
+      title,
+      copyright,
+    });
+  };
+
   useEffect(() => {
     setBackground(background);
-    getAPIData(apiURL, setBackgroundLoading).then(data => {
-      const { title, copyright } = data;
-
-      // Check to see if a video or image is being returned from the API
-      // If a video is  returned, then use the Youtube preview image as the background image for the app
-      const mediaLink =
-        data.media_type === 'video'
-          ? CSS.escape(getVideoID(data.url))
-          : CSS.escape(data.hdurl);
-
-      setBackground(
-        {
-          link: mediaLink,
-          title,
-          copyright,
-        } || {}
-      );
-    });
+    getAPIData(apiURL, getBackgroundImage);
     return () => setBackground({});
   }, [link, title, copyright, setBackground]);
 
