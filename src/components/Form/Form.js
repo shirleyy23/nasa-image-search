@@ -26,7 +26,7 @@ const Form = () => {
 
   const { image } = useImage();
 
-  const { changeResults, setResultsLoadingText } = image;
+  const { changeResults, setResultsStatus } = image;
 
   const validateForm = query => {
     const specialCharsRegEx = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
@@ -59,7 +59,7 @@ const Form = () => {
           });
         }
         updateQuery(searchVal);
-        setResultsLoadingText(`Searching images for ${searchVal}...`);
+        setResultsStatus(`Searching images for ${searchVal}...`);
         getAPIData(imageQuery, changeResults);
       }}
     >

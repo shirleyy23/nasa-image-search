@@ -8,7 +8,7 @@ import Wrapper from './components/Wrapper/Wrapper';
 function App() {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState('');
-  const [resultsLoadingText, setResultsLoadingText] = useState('');
+  const [resultsStatus, setResultsStatus] = useState('');
   const [backgroundLoading, setBackgroundLoading] = useState(false);
   useEffect(() => {
     setResults([]);
@@ -21,8 +21,8 @@ function App() {
           results,
           backgroundLoading,
           setBackgroundLoading,
-          resultsLoadingText,
-          setResultsLoadingText,
+          resultsStatus,
+          setResultsStatus,
           changeResults: e => setResults(e.collection.items),
         }}
       >
