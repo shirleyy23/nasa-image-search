@@ -51,7 +51,9 @@ const Results = () => {
           primary
           onClick={() =>
             setCounter(prevState =>
-              prevState + 12 > results.length ? results.length : prevState + 12
+              prevState + 12 > results.length
+                ? prevState + (results.length - prevState)
+                : prevState + 12
             )
           }
         >
