@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from '../Image/Image';
 import { useSearch } from '../SearchContext/SearchContext';
 import { useImage } from '../ImageContext/ImageContext';
@@ -15,6 +15,8 @@ const Results = () => {
 
   const { results, resultsStatus, setResultsStatus } = image;
 
+  const prevQueryRef = useRef();
+
   const getResultsText = (term, images) => {
     const resultsText =
       images.length > 0
@@ -23,6 +25,22 @@ const Results = () => {
 
     return resultsText;
   };
+
+  useEffect(() => {
+    prevQueryRef.current = query;
+
+    if (prevQuery !== query) {
+      const updatedCounterValue = results.length >= 12 ? 12 : results.length;
+
+      setCounter(updatedCounterValue);
+    }
+
+    const updatedTitle = getResultsText(query, results);
+
+    setResultsStatus(updatedTitle);
+  }, [results, counter]);
+
+  const prevQuery = prevQueryRef.current;
 
   return (
     <Container>
