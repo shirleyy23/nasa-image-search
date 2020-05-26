@@ -13,7 +13,7 @@ const Results = () => {
 
   const { image } = useImage();
 
-  const { results, resultsLoadingText } = image;
+  const { results, resultsStatus, setResultsStatus } = image;
 
   const findImages = (term, images) => {
     const initialCount = images.length >= 12 ? counter : images.length;
