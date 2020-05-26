@@ -25,11 +25,7 @@ const Results = () => {
 
   return (
     <Container>
-      {results.length >= 1 ? (
-        <Title>{findImages(query, results)}</Title>
-      ) : (
-        <Title>{resultsLoadingText}</Title>
-      )}
+      {query && <Title>{resultsStatus}</Title>}
       <Image counter={counter} />
       {results.length > 0 && results.length > 12 ? (
         <StyledButton
