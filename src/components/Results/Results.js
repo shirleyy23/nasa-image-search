@@ -46,7 +46,7 @@ const Results = () => {
     <Container>
       {query && <Title>{resultsStatus}</Title>}
       <Image counter={counter} />
-      {results.length > 0 && results.length > 12 ? (
+      {results.length > 12 && counter < results.length ? (
         <StyledButton
           primary
           onClick={() =>
