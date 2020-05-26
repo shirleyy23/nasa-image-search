@@ -31,8 +31,8 @@ const Results = () => {
         <StyledButton
           primary
           onClick={() =>
-            setCounter(
-              counter + 12 > results.length ? results.length : counter + 12
+            setCounter(prevState =>
+              prevState + 12 > results.length ? results.length : prevState + 12
             )
           }
         >
