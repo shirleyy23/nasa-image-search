@@ -15,12 +15,13 @@ const Results = () => {
 
   const { results, resultsStatus, setResultsStatus } = image;
 
-  const findImages = (term, images) => {
-    const initialCount = images.length >= 12 ? counter : images.length;
-    if (images.length > 0) {
-      return `Results for "${term}" (${initialCount}/${images.length} images)`;
-    }
-    return `No images found for "${term}"`;
+  const getResultsText = (term, images) => {
+    const resultsText =
+      images.length > 0
+        ? `Results for "${term}" (${counter}/${images.length} images)`
+        : `No images found for "${term}"`;
+
+    return resultsText;
   };
 
   return (
