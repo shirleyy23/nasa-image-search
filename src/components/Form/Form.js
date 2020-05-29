@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getAPIData } from '../../Utilities';
 import { useImage } from '../ImageContext/ImageContext';
-import { useSearch } from '../SearchContext/SearchContext';
+import { useSearchContext } from '../../state';
 import {
   StyledForm,
   StyledFieldset,
@@ -20,7 +20,7 @@ const Form = () => {
   const { status, message } = formMessage;
   const imageQuery = `https://images-api.nasa.gov/search?q=${searchVal}&media_type=image`;
 
-  const { search } = useSearch();
+  const { search } = useSearchContext();
 
   const { updateQuery } = search;
 

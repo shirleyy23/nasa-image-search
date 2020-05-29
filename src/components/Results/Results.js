@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from '../Image/Image';
-import { useSearch } from '../SearchContext/SearchContext';
+import { useSearchContext } from '../../state';
 import { useImage } from '../ImageContext/ImageContext';
 import { Container, Title, StyledButton } from './Styles/ResultsStyled';
 
 const Results = () => {
   const [counter, setCounter] = useState(12);
 
-  const { search } = useSearch();
+  const { search } = useSearchContext();
 
   const { query } = search;
 

@@ -2,7 +2,9 @@ import React, { createContext, useContext } from 'react';
 
 const SearchContext = createContext();
 
-export const useSearch = () => useContext(SearchContext);
+export const useSearchContext = () => {
+  return useContext(SearchContext);
+};
 
 const SearchProvider = ({ children, search }) => {
   return (

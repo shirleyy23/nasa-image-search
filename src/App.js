@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import 'normalize.css';
 import './index.css';
 import ImageProvider from './components/ImageContext/ImageContext';
-import SearchProvider from './components/SearchContext/SearchContext';
+import SearchProvider from './state/SearchContext/SearchContext';
 import Wrapper from './components/Wrapper/Wrapper';
 
 function App() {
