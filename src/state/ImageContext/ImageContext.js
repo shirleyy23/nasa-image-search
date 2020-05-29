@@ -2,7 +2,7 @@ import React, { createContext, useContext } from 'react';
 
 const ImageContext = createContext();
 
-export const useImage = () => useContext(ImageContext);
+export const useImageContext = () => useContext(ImageContext);
 
 const ImageProvider = ({ children, image }) => {
   return (

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from '../Image/Image';
-import { useSearchContext } from '../../state';
-import { useImage } from '../ImageContext/ImageContext';
+import { useSearchContext, useImageContext } from '../../state';
 import { Container, Title, StyledButton } from './Styles/ResultsStyled';
 
 const Results = () => {
@@ -11,7 +10,7 @@ const Results = () => {
 
   const { query } = search;
 
-  const { image } = useImage();
+  const { image } = useImageContext();
 
   const { results, resultsStatus, setResultsStatus } = image;
 

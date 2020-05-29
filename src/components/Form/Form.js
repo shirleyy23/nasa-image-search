@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { getAPIData } from '../../Utilities';
-import { useImage } from '../ImageContext/ImageContext';
-import { useSearchContext } from '../../state';
+import { useSearchContext, useImageContext } from '../../state';
 import {
   StyledForm,
   StyledFieldset,
@@ -24,7 +23,7 @@ const Form = () => {
 
   const { updateQuery } = search;
 
-  const { image } = useImage();
+  const { image } = useImageContext();
 
   const { changeResults, setResultsStatus } = image;
 

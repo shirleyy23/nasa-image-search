@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import objectFitPolyfill from 'objectFitPolyfill';
 import PropTypes from 'prop-types';
-import { useImage } from '../ImageContext/ImageContext';
+import { useImageContext } from '../../state';
 import ModalWrapper from '../Modal/ModalWrapper';
 import Modal from '../Modal/Modal';
 import {
@@ -24,7 +24,7 @@ const Image = props => {
 
   const { counter } = props;
 
-  const { image } = useImage();
+  const { image } = useImageContext();
 
   const { results } = image;
 
